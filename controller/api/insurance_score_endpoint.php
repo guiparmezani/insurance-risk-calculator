@@ -1,5 +1,6 @@
 <?php
-require_once('../model/InsuredPerson.php');
+require_once('../../model/InsuredPerson.php');
+require_once('../InsuredPersonController.php');
 
 // Assigns the JSON data to variable in String format
 $person_data = utf8_encode($_POST['jsonData']);
@@ -21,5 +22,7 @@ $person = new InsuredPerson (
 );
 
 var_dump($person);
+
+calculate_insurance_risk_score(null);
 exit();
 ?>

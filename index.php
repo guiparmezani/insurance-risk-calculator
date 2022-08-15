@@ -42,7 +42,7 @@
       <p>Built by <a href="https://parmezani.com/" target="_blank">Guilherme Parmezani</a></p>
 
       <!-- Includes view layer -->
-      <?php include 'view/insurance_score_form.php' ?>
+      <?php include 'view/insurance_score_bean.php' ?>
     </div>
   </body>
   </html>

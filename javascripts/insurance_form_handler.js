@@ -16,7 +16,7 @@ $(document).ready(function(){
 		}
 		
 		const apiCallParameters = {
-		  url: "api/insurance_score_endpoint.php",
+		  url: "controller/api/insurance_score_endpoint.php",
 		  dataType: "text",
 		  type: "POST",
 		  data: { jsonData: JSON.stringify( insuredPersonData ) }, // Our valid JSON string
