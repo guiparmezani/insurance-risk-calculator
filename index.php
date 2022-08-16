@@ -14,8 +14,9 @@
     <meta name="description" content="Assignment test tool developed by Guilherme Parmezani" />
     <meta name="keywords" content="use, origin, insurance, score, calculator, take, home, ssignment" />
 
-    <!-- jQuery + front end handler javascript -->
+    <!-- Third party scripts + front end handler javascript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="javascripts/insurance_form_handler.js" type="text/javascript"></script>
 
     <!-- Poppin Google font -->

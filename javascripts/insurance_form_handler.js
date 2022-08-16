@@ -2,7 +2,7 @@ $(document).ready(function(){
 	// Intercepts our form submissions and runs API call
 	$("#insuranceScoreCalculationForm").submit(function(event){
 		event.preventDefault()
-		
+
 		const insuredPersonData = {
 			age: $('#insuranceScoreCalculationForm input[name="age"]').val(),
 			dependents: $('#insuranceScoreCalculationForm input[name="dependents"]').val(),
@@ -20,6 +20,8 @@ $(document).ready(function(){
 		  data: { jsonData: JSON.stringify( insuredPersonData ) }, // Our valid JSON string
 		  success: function( data, status, xhr ) {
 		  	console.log('API response returned successfull.')
+
+		  	
 		  },
 		  error: function( xhr, status, error ) {
 		  	console.log('Error processing the request. Error message: ' + error)
