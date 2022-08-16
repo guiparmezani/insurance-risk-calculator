@@ -52,7 +52,6 @@ class InsuredPersonController implements InsuredPersonInterface {
 			$insurancePoints['disability'] -= 1;
 		}
 		
-		
 		// From expecifications:
 		// ———
 		// "If the user's vehicle was produced in the last 5 years, add 1 risk point to that vehicle’s score."
@@ -61,6 +60,7 @@ class InsuredPersonController implements InsuredPersonInterface {
 		if ($insuredPerson->getVehicle()->getYear() > date('Y') - 5) {
 			$insurancePoints['auto'] += 1;
 		}
+
 
 		foreach ($insurancePoints as $key => $variation) {
 			if (!in_array($key, $ineligibilityList)) {
@@ -75,7 +75,7 @@ class InsuredPersonController implements InsuredPersonInterface {
 		$insuranceScore->home = $insurancePoints['home'];
 		$insuranceScore->life = $insurancePoints['life'];
 
-		return json_encode($insuranceScore);
+		return $insuranceScore;
 	}
 }
 

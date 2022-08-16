@@ -21,9 +21,9 @@ $insuredPerson = new InsuredPerson (
   $personObject->risk_questions
 );
 
-
 $insuredPersonController = new InsuredPersonController();
-var_dump($insuredPersonController->calculateInsuranceScoreRisk($insuredPerson));
+
+echo json_encode($insuredPersonController->calculateInsuranceScoreRisk($insuredPerson));
 
 exit();
 ?>
