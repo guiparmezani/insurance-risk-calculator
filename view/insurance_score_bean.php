@@ -1,6 +1,6 @@
 <div class="form-wrapper">
 	<!-- Form intro -->
-	<p>Please enter your personal informantion to calculate your risk score</p>
+	<p>Please enter your personal informantion to calculate your risk score (results below form)</p>
 
 	<!-- The form has not action attribute because it's intercepted by our Javascript and posted via Ajax to our API endpoint. -->
 	<form id="insuranceScoreCalculationForm">
@@ -52,4 +52,18 @@
 		<input type="submit" value="Calculate" class="submit-button">
 	</form>
 
+</div>
+
+<div class="results">
+	<label><strong>Auto</strong> insurance risk score</label>
+	<span id="autoResults"></span>
+
+	<label><strong>Disability</strong> insurance risk score</label>
+	<span id="disabilityResults"></span>
+
+	<label><strong>Home</strong> insurance risk score</label>
+	<span id="homeResults"></span>
+
+	<label><strong>Life</strong> insurance risk score</label>
+	<span id="lifeResults"></span>
 </div>

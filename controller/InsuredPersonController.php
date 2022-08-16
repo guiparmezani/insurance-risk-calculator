@@ -65,6 +65,13 @@ class InsuredPersonController implements InsuredPersonInterface {
 		foreach ($insurancePoints as $key => $variation) {
 			if (!in_array($key, $ineligibilityList)) {
 				$insurancePoints[$key] += $allLinesVariations;
+				if ($insurancePoints[$key] < 1) {
+					$insurancePoints[$key] = 'economic';
+				} elseif ($insurancePoints[$key] > 0 && $insurancePoints[$key] < 3) {
+					$insurancePoints[$key] = 'regular';
+				} else {
+					$insurancePoints[$key] = 'responsible';
+				}
 			} else {
 				$insurancePoints[$key] = 'ineligible';
 			}

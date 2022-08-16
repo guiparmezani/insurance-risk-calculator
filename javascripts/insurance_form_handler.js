@@ -14,14 +14,37 @@ $(document).ready(function(){
 		}
 		
 		const apiCallParameters = {
-			url: "controller/api/insurance_score_endpoint.php",
+			url: "api/insurance_score_endpoint.php",
 			dataType: "text",
 			type: "POST",
-		  data: { jsonData: JSON.stringify( insuredPersonData ) }, // Our valid JSON string
+		  data: { jsonData: JSON.stringify( insuredPersonData ) },
 		  success: function( data, status, xhr ) {
 		  	console.log('API response returned successfull.')
-
 		  	
+		  	const insuranceResults = $.parseJSON(data)
+		  	
+				var resultsPresentation = anime.timeline({
+				  easing: 'easeInOutQuad',
+				  duration: 500
+				});
+
+				resultsPresentation
+				.add({
+				  targets: '.results',
+				  opacity: 0,
+				  marginTop: [12, 30],
+				})
+				.add({
+					targets: '.results',
+				  opacity: 1,
+				  marginTop: [30, 12],
+				  begin: function(){
+				  	$('#autoResults').text(insuranceResults.auto)
+				  	$('#disabilityResults').text(insuranceResults.disability)
+				  	$('#homeResults').text(insuranceResults.home)
+				  	$('#lifeResults').text(insuranceResults.life)
+				  }
+				})
 		  },
 		  error: function( xhr, status, error ) {
 		  	console.log('Error processing the request. Error message: ' + error)

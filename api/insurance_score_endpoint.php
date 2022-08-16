@@ -1,8 +1,8 @@
 <?php
-require_once('../../model/House.php');
-require_once('../../model/Vehicle.php');
-require_once('../../model/InsuredPerson.php');
-require_once('../InsuredPersonController.php');
+require_once('../model/House.php');
+require_once('../model/Vehicle.php');
+require_once('../model/InsuredPerson.php');
+require_once('../controller/InsuredPersonController.php');
 
 // Converts JSON string to Object and assigns the data to variable
 $personObject = json_decode(utf8_encode($_POST['jsonData']));

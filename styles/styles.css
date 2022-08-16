@@ -30,12 +30,14 @@ a:hover {
 }
 
 /*Form styles*/
-.form-wrapper {
+.form-wrapper,
+.results {
 	width: 100%;
 	margin:  0 auto;
 	margin-top: 40px;
-	max-width: 260px;
+	max-width: 300px;
 	padding: 0 30px;
+	overflow: hidden;
 }
 
 .form-wrapper label {
@@ -63,9 +65,26 @@ a:hover {
 	background-color: #fff;
 	color: #333;
 	cursor:  pointer;
+	width: 180px;
+	margin: 20px auto;
 }
 
 #insuranceScoreCalculationForm {
 	display: flex;
 	flex-direction: column;
+}
+
+.results {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	opacity: 0;
+	margin-top: 0;
+	transform: translateX(-50%);
+	left: 50%;
+}
+
+.results span {
+	margin-bottom: 15px;
+	font-weight: 500;
 }
