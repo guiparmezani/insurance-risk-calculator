@@ -6,13 +6,11 @@ $(document).ready(function(){
     const insuredPersonData = {
 		  age: $('#insuranceScoreCalculationForm input[name="age"]').val(),
 		  dependents: $('#insuranceScoreCalculationForm input[name="dependents"]').val(),
-		  houseOwnershipStatus: $('#insuranceScoreCalculationForm select[name="houseOwnershipStatus"]').val(),
+		  house: {'ownership_status' : $('#insuranceScoreCalculationForm select[name="houseOwnershipStatus"]').val()},
 		  income: $('#insuranceScoreCalculationForm input[name="income"]').val(),
-		  maritalStatus: $('#insuranceScoreCalculationForm select[name="maritalStatus"]').val(),
-		  vehicleYear: $('#insuranceScoreCalculationForm input[name="vehicleYear"]').val(),
-		  riskQuestion1: $('#insuranceScoreCalculationForm select[name="riskQuestion1"]').val(),
-		  riskQuestion2: $('#insuranceScoreCalculationForm select[name="riskQuestion2"]').val(),
-		  riskQuestion3: $('#insuranceScoreCalculationForm select[name="riskQuestion3"]').val(),
+		  marital_status: $('#insuranceScoreCalculationForm select[name="maritalStatus"]').val(),
+		  vehicle: {year : $('#insuranceScoreCalculationForm input[name="vehicleYear"]').val()},
+		  risk_questions: [$('#insuranceScoreCalculationForm select[name="riskQuestion1"]').val(), $('#insuranceScoreCalculationForm select[name="riskQuestion2"]').val(), $('#insuranceScoreCalculationForm select[name="riskQuestion3"]').val()]
 		}
 		
 		const apiCallParameters = {

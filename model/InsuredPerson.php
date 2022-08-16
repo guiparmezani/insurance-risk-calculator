@@ -2,24 +2,20 @@
 class InsuredPerson {
   private $age;
   private $dependents;
-  private $houseOwnershipStatus;
+  private $house;
   private $income;
   private $maritalStatus;
-  private $vehicleYear;
-  private $riskQuestion1;
-  private $riskQuestion2;
-  private $riskQuestion3;
+  private $vehicle;
+  private $riskQuestions;
 
-  function __construct($age, $dependents, $houseOwnershipStatus, $income, $maritalStatus, $vehicleYear, $riskQuestion1, $riskQuestion2, $riskQuestion3) {
+  function __construct($age, $dependents, $house, $income, $maritalStatus, $vehicle, $riskQuestions) {
     $this->age = $age;
     $this->dependents = $dependents;
-    $this->houseOwnershipStatus = $houseOwnershipStatus;
+    $this->house = $house;
     $this->income = $income;
     $this->maritalStatus = $maritalStatus;
-    $this->vehicleYear = $vehicleYear;
-    $this->riskQuestion1 = $riskQuestion1;
-    $this->riskQuestion2 = $riskQuestion2;
-    $this->riskQuestion3 = $riskQuestion3;
+    $this->vehicle = $vehicle;
+    $this->riskQuestions = $riskQuestions;
   }
 
   public function getAge(){
@@ -38,12 +34,12 @@ class InsuredPerson {
     $this->dependents = $dependents;
   }
 
-  public function getHouseOwnershipStatus(){
-    return $this->houseOwnershipStatus;
+  public function getHouse(){
+    return $this->house;
   }
 
-  public function setHouseOwnershipStatus($houseOwnershipStatus){
-    $this->houseOwnershipStatus = $houseOwnershipStatus;
+  public function setHouse($house){
+    $this->house = $house;
   }
 
   public function getIncome(){
@@ -62,36 +58,45 @@ class InsuredPerson {
     $this->maritalStatus = $maritalStatus;
   }
 
-  public function getVehicleYear(){
-    return $this->vehicleYear;
+  public function getVehicle(){
+    return $this->vehicle;
   }
 
-  public function setVehicleYear($vehicleYear){
-    $this->vehicleYear = $vehicleYear;
+  public function setVehicle($vehicle){
+    $this->vehicle = $vehicle;
   }
 
-  public function getRiskQuestion1(){
-    return $this->riskQuestion1;
+  public function getRiskQuestions(){
+    return $this->riskQuestions;
   }
 
-  public function setRiskQuestion1($riskQuestion1){
-    $this->riskQuestion1 = $riskQuestion1;
+  public function setRiskQuestions($riskQuestions){
+    $this->riskQuestions = $riskQuestions;
   }
 
-  public function getRiskQuestion2(){
-    return $this->riskQuestion2;
-  }
 
-  public function setRiskQuestion2($riskQuestion2){
-    $this->riskQuestion2 = $riskQuestion2;
-  }
+  // Checks for imperative rules..
+  public function getIneligibilityList () {
+    $ineligibilityList = [];
 
-  public function getRiskQuestion3(){
-    return $this->riskQuestion3;
-  }
+    if ($this->getAge() > 59) {
+      array_push($ineligibilityList, 'life');
+      array_push($ineligibilityList, 'disability');
+    }
 
-  public function setRiskQuestion3($riskQuestion3){
-    $this->riskQuestion3 = $riskQuestion3;
+    if (!in_array('disability', $ineligibilityList) && $this->getIncome() != null && $this->getIncome() < 1) {
+      array_push($ineligibilityList, 'disability');
+    }
+
+    if ($this->getVehicle()->getYear() == null || $this->getVehicle()->getYear() == 0 || $this->getVehicle()->getYear() == '') {
+      array_push($ineligibilityList, 'auto');
+    }
+
+    if ($this->getHouse()->getOwnershipStatus() == null || $this->getHouse()->getOwnershipStatus() == '') {
+      array_push($ineligibilityList, 'home');
+    }
+
+    return $ineligibilityList;
   }
 }
 

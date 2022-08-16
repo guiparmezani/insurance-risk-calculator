@@ -38,8 +38,9 @@
     <div class="page-content-wrapper">
       
       <!-- Intro -->
-      <h1>Origin Backend Take-Home Assignment</h1>
-      <p>Built by <a href="https://parmezani.com/" target="_blank">Guilherme Parmezani</a></p>
+      <h1>Insurance Risk Calculator</h1>
+      <p>Origin Backend Take-Home Assignment<br>Built by <a href="https://parmezani.com/" target="_blank">Guilherme Parmezani</a></p></p>
+      <p>
 
       <!-- Includes view layer -->
       <?php include 'view/insurance_score_bean.php' ?>

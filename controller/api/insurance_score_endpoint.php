@@ -1,28 +1,29 @@
 <?php
+require_once('../../model/House.php');
+require_once('../../model/Vehicle.php');
 require_once('../../model/InsuredPerson.php');
 require_once('../InsuredPersonController.php');
 
-// Assigns the JSON data to variable in String format
-$person_data = utf8_encode($_POST['jsonData']);
+// Converts JSON string to Object and assigns the data to variable
+$personObject = json_decode(utf8_encode($_POST['jsonData']));
 
-// Converts JSON string to Object
-$personJson = json_decode($person_data);
+$personHouse = new House(null, $personObject->house->ownership_status);
+$personVehicle = new Vehicle(null, null, null, $personObject->vehicle->year);
 
 // Instantiate Insured Person
-$person = new InsuredPerson (
-  $personJson->age,
-  $personJson->dependents,
-  $personJson->houseOwnershipStatus,
-  $personJson->income,
-  $personJson->maritalStatus,
-  $personJson->vehicleYear,
-  $personJson->riskQuestion1,
-  $personJson->riskQuestion2,
-  $personJson->riskQuestion3
+$insuredPerson = new InsuredPerson (
+  intval($personObject->age),
+  intval($personObject->dependents),
+  $personHouse,
+  number_format(floatval($personObject->income), 2, '.', ''),
+  $personObject->marital_status,
+  $personVehicle,
+  $personObject->risk_questions
 );
 
-var_dump($person);
 
-calculate_insurance_risk_score(null);
+$insuredPersonController = new InsuredPersonController();
+var_dump($insuredPersonController->calculateInsuranceScoreRisk($insuredPerson));
+
 exit();
 ?>

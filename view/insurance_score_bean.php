@@ -18,7 +18,7 @@
 		</select>
 
 		<label>Income</label>
-		<input type="number" name="income">
+		<input type="float" name="income">
 
 		<label>Marital Status</label>
 		<select name="maritalStatus">
@@ -32,20 +32,20 @@
 
 		<label>Risk Question 1</label>
 		<select name="riskQuestion1">
-			<option value="false">0</option>
-			<option value="true">1</option>
+			<option value="0">0</option>
+			<option value="1">1</option>
 		</select>
 
 		<label>Risk Question 2</label>
 		<select name="riskQuestion2">
-			<option value="false">0</option>
-			<option value="true">1</option>
+			<option value="0">0</option>
+			<option value="1">1</option>
 		</select>
 		
 		<label>Risk Question 3</label>
 		<select name="riskQuestion3">
-			<option value="false">0</option>
-			<option value="true">1</option>
+			<option value="0">0</option>
+			<option value="1">1</option>
 		</select>
 		
 	
