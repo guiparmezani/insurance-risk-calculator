@@ -44,7 +44,7 @@
       <p>
 
       <!-- Includes view layer -->
-      <?php include 'view/insurance_score_bean.php' ?>
+      <?php include 'view/insurance_score_bean.html' ?>
     </div>
   </body>
   </html>
