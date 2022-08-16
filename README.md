@@ -7,17 +7,7 @@ Extract the compressed project file into a folder that's publicly served on a we
 - Open XAMPP. On the "Welcome" tab, click on "Open Application Folder";
 - Navigate to a folder called "htdocs";
 - Edit the file called "index.php";
-- Replace its content with the following snippet:
-- <?php
-	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-		$uri = 'https://';
-	} else {
-		$uri = 'http://';
-	}
-	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/origin-guilherme-parmezani/');
-	exit;
-?>
+- Replace its content with [this code snippet](https://parmezani.com/XAMPP-snippet.txt):
 - Extract the project file on the same folder (htdocs);
 - On XAMPP, click on the "Manage Servers" tab, and start the Apache Web Server service (if not started yet);
 - Go back to the "Welcome" tab and click "Open Application";
