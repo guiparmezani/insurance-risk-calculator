@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * House class. Holds House variables that are accessible via getters and setters only.
+ *
+ * @author  Guilherme Parmezani <g@parmezani.com>
+ *
+ */
 class House {
   private $buildingType;
   private $ownershipStatus;

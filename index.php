@@ -1,5 +1,3 @@
-<?php namespace Origin; ?>
-
 <!doctype html>
   <html lang="en">
   <head>

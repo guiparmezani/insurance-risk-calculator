@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * API response class. Stores the risk type for each insurance line.
+ *
+ * @author  Guilherme Parmezani <g@parmezani.com>
+ *
+ */
 class InsuranceScore {
   public $auto;
   public $disability;

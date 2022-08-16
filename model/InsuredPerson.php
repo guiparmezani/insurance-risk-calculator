@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Insured Person class. Holds Insured Person variables that are accessible via getters and setters only.
+ *
+ * @author  Guilherme Parmezani <g@parmezani.com>
+ *
+ */
 class InsuredPerson {
   private $age;
   private $dependents;
@@ -75,7 +82,14 @@ class InsuredPerson {
   }
 
 
-  // Checks for imperative rules..
+  /**
+   * Creates a list of insurance lines an Insured Person is not eligible to.
+   *
+   * @author  Guilherme Parmezani <g@parmezani.com>
+   * 
+   * @return Array list of insurance lines an Insured Person is ineligible to.
+   *
+   */
   public function getIneligibilityList () {
     $ineligibilityList = [];
 

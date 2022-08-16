@@ -47,13 +47,14 @@
 			<option value="0">0</option>
 			<option value="1">1</option>
 		</select>
-		
 	
 		<input type="submit" value="Calculate" class="submit-button">
 	</form>
 
 </div>
 
+<!-- Results are CSS hidden at first. Will be displayed once API response is processed and ready to go. All handled in the JS file. -->
+<p id="errorMessage" class="hidden">Error processing request.</p>
 <div class="results">
 	<label><strong>Auto</strong> insurance risk score</label>
 	<span id="autoResults"></span>

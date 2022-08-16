@@ -1,8 +1,10 @@
 $(document).ready(function(){
+	
 	// Intercepts our form submissions and runs API call
 	$("#insuranceScoreCalculationForm").submit(function(event){
 		event.preventDefault()
 
+		// Populates JSON using form input values
 		const insuredPersonData = {
 			age: $('#insuranceScoreCalculationForm input[name="age"]').val(),
 			dependents: $('#insuranceScoreCalculationForm input[name="dependents"]').val(),
@@ -13,6 +15,7 @@ $(document).ready(function(){
 			risk_questions: [$('#insuranceScoreCalculationForm select[name="riskQuestion1"]').val(), $('#insuranceScoreCalculationForm select[name="riskQuestion2"]').val(), $('#insuranceScoreCalculationForm select[name="riskQuestion3"]').val()]
 		}
 		
+		// Sets up Ajax call and sends to API endpoint. Then, handles response. If success, updates the Results frontend markup. If error, shows error message.
 		const apiCallParameters = {
 			url: "api/insurance_score_endpoint.php",
 			dataType: "text",
@@ -20,6 +23,7 @@ $(document).ready(function(){
 		  data: { jsonData: JSON.stringify( insuredPersonData ) },
 		  success: function( data, status, xhr ) {
 		  	console.log('API response returned successfull.')
+		  	$('#errorMessage').addClass('hidden')
 		  	
 		  	const insuranceResults = $.parseJSON(data)
 		  	
@@ -48,6 +52,7 @@ $(document).ready(function(){
 		  },
 		  error: function( xhr, status, error ) {
 		  	console.log('Error processing the request. Error message: ' + error)
+		  	$('#errorMessage').removeClass('hidden')
 		  }
 		}
 		$.ajax( apiCallParameters )

@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Vehicle class. Holds Vehicle variables that are accessible via getters and setters only.
+ *
+ * @author  Guilherme Parmezani <g@parmezani.com>
+ *
+ */
 class Vehicle {
   private $type;
   private $model;

@@ -3,9 +3,17 @@ include 'InsuredPersonInterface.php';
 include 'InsuranceScore.php';
 
 class InsuredPersonController implements InsuredPersonInterface {
+
+	/**
+	 * Calculates the insurance risk score for a given person. Then translates the scores into terms in string format.
+	 *
+	 * @author  Guilherme Parmezani <g@parmezani.com>
+	 *
+	 * @param InsuredPerson $insuredPerson
+	 */
 	public function calculateInsuranceScoreRisk ($insuredPerson) {
 		
-		// Early return if person is ineligible
+		// Early return if person is ineligible to all four insurance lines
 		$insuranceScore = new InsuranceScore();
 		$ineligibilityList = $insuredPerson->getIneligibilityList();
 		if (count($ineligibilityList) == 4) {
@@ -19,6 +27,7 @@ class InsuredPersonController implements InsuredPersonInterface {
 			$riskQuestionsSum += $riskQuestion;
 		}
 
+		// Key value array that stores the risk points.
 		$insurancePoints = [
 			'auto' => $riskQuestionsSum,
 			'disability' => $riskQuestionsSum,
@@ -26,7 +35,7 @@ class InsuredPersonController implements InsuredPersonInterface {
 			'life' => $riskQuestionsSum
 		];
 
-
+		// Business rules logic. Tests conditions and updates risk points
 		if ($insuredPerson->getAge() < 30) {
 			$allLinesVariations -= 2;
 		} elseif ($insuredPerson->getAge() < 40) {
@@ -56,12 +65,15 @@ class InsuredPersonController implements InsuredPersonInterface {
 		// ———
 		// "If the user's vehicle was produced in the last 5 years, add 1 risk point to that vehicle’s score."
 		// ———
-		// Isn't it "wasn't"? Or, if it was produced in the last 5 years, then decuct 1 risk point?
+		// Isn't it "wasn't produced"? Or, if it was produced in the last 5 years, then decuct 1 risk point?
+		// I assume a car produced in the last 5 years is considered new and should not increase the risk?
+		// This code chunk implements what the expectations asked for, regardless.
 		if ($insuredPerson->getVehicle()->getYear() > date('Y') - 5) {
 			$insurancePoints['auto'] += 1;
 		}
 
 
+		// Calculates the final scores and labels each of them.
 		foreach ($insurancePoints as $key => $variation) {
 			if (!in_array($key, $ineligibilityList)) {
 				$insurancePoints[$key] += $allLinesVariations;
@@ -77,6 +89,7 @@ class InsuredPersonController implements InsuredPersonInterface {
 			}
 		}
 
+		// Prepares response object and returns.
 		$insuranceScore->auto = $insurancePoints['auto'];
 		$insuranceScore->disability = $insurancePoints['disability'];
 		$insuranceScore->home = $insurancePoints['home'];

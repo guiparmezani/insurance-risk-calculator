@@ -25,6 +25,10 @@ a:hover {
 	text-decoration: underline;
 }
 
+.hidden {
+	display: none !important;
+}
+
 .page-content-wrapper {
 	padding: 30px;
 }
