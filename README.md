@@ -15,17 +15,17 @@ Extract the compressed project file into a folder that's publicly served on a we
 Alternatively, you can use the app by going to this personal web server: https://parmezani.com/origin-guilherme-parmezani/
 
 ### Technology Stack and Project Enginerring Process
-The decision of using PHP was made by taking in consideration the solid knowledge on that language held by the developer. It's also a widely used programming language. Chances are prople won't have much trouble installing it or being able to feed inputs to the app in order to look at results. Setting up the environment is rather simple and that's a plus. PHP allows object oriented logic too, which was key to achieve the expected results.
+The decision of using PHP was made by taking in consideration the solid knowledge on that language held by the developer. It's also a widely used programming language. Chances are people won't have much trouble installing it or being able to feed inputs to the app in order to look at results. Setting up the environment is rather simple and that's a plus. PHP allows object oriented logic too, which was key to achieve the expected results.
 
 MVC (Model-View-Control) architecture was implemented in this project. The first step was to build the frontend (View) and make sure the inputs were being sent to the API endpoint with no issues. Then, we built the core code in the Control layer, which receives the data, processes it based off the business rules. From here, we can either use the Model layer to persist the processed data, or simply return the results to the View layer, which was the case. The application is extensible and easy to tweak since the layers are separated from each other.
 
 Folders structure discrepancy:
 - api: Contains the API endpoint code;
 - controller: Contains the business rules logic;
-- model: Classes and data coherancy files;
+- model: Classes and data coherency files;
 - view: User interface files. Handles the frontend rendering and API calls;
 - javascripts: JS code that interacts with user inputs;
 - styles: CSS that makes frontend look friendly.
 
 ### Final Notes
-This project was fun to work on! It can probably be used as a real software in the future. The API logic is on a folder that's separated from the others, in case we want to serve other apps publicly. The only thing that would be necessary is to set up authentication. Since the endpoint does not listen to third party apps, there is no authentication implemented. This is all documented within the proejct files in code comment format.
+This project was fun to work on! It can probably be used as a real software in the future. The API logic is on a folder that's separated from the others, in case we want to serve other apps publicly. The only thing that would be necessary is to set up authentication. Since the endpoint does not listen to third party apps, there is no authentication implemented. This is all documented within the project files in code comment format.
